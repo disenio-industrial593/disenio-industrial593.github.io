@@ -80,6 +80,40 @@ footer{
   margin:15px auto;
   line-height:1.6;
 }
+
+.hero{
+  height:500px;
+  background-image:url("portada.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.hero-texto{
+  background:rgba(0,0,0,0.5);
+  padding:30px;
+  border-radius:10px;
+}
+
+.hero h2{
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.boton-hero{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 20px;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+}
 </style>
 </head>
 
@@ -95,6 +129,14 @@ footer{
   <a href="#productos">Productos</a>
   <a href="#ubicacion">Ubicación</a>
   <a href="#contacto">Contacto</a>
+
+  <section class="hero">
+  <div class="hero-texto">
+    <h2>Muebles modernos para tu espacio de trabajo</h2>
+    <p>Diseñamos y fabricamos escritorios y mobiliario personalizado con calidad profesional.</p>
+    <a class="boton-hero" href="productos.html">Ver productos</a>
+  </div>
+</section>
 </nav>
 
 <section id="nosotros" class="section">
