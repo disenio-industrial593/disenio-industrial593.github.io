@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -12,29 +12,96 @@ body{
   background:#f4f4f4;
 }
 
-header{
-  background:#2c3e50;
-  color:white;
-  padding:30px;
-  text-align:center;
+/* HEADER NUEVO + FIJO */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#2c2f3a;
+  padding:15px 40px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-nav{
-  background:#34495e;
-  padding:10px;
-  text-align:center;
+.logo{
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
-nav a{
+.menu a{
   color:white;
-  margin:15px;
+  margin:0 15px;
   text-decoration:none;
   font-weight:bold;
+  position:relative;
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:2px;
+  background:white;
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
+
+.menu a:hover::after{
+  width:100%;
 }
 
 .section{
   padding:40px 20px;
   text-align:center;
+}
+
+/* NUEVAS CATEGORÍAS */
+.categorias{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:40px 20px;
+}
+
+.categoria{
+  width:220px;
+  height:300px;
+  border-radius:15px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  color:white;
+  cursor:pointer;
+  transition:transform 0.3s;
+}
+
+.categoria:hover{
+  transform:scale(1.05);
+}
+
+.categoria::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  top:0;
+  left:0;
+}
+
+.categoria-texto{
+  position:relative;
+  padding:20px;
+  z-index:2;
+  text-align:left;
 }
 
 .productos{
@@ -81,9 +148,9 @@ footer{
   line-height:1.6;
 }
 
+/* HERO */
 .hero{
   height:500px;
-  background-image:url("portada.jpeg");
   background-size:cover;
   background-position:center;
   display:flex;
@@ -91,6 +158,7 @@ footer{
   justify-content:center;
   text-align:center;
   color:white;
+  transition:background-image 1s ease-in-out;
 }
 
 .hero-texto{
@@ -119,50 +187,72 @@ footer{
 
 <body>
 
-<header>
-  <h1>Diseño Industrial 593</h1>
-  <p>Fabricamos muebles personalizados</p>
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">DISEÑO 593</div>
+
+  <nav class="menu">
+    <a href="#">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#nosotros">Nosotros</a>
-  <a href="#productos">Productos</a>
-  <a href="#ubicacion">Ubicación</a>
-  <a href="#contacto">Contacto</a>
-
-  <section class="hero">
+<!-- HERO -->
+<section class="hero">
   <div class="hero-texto">
     <h2>Muebles modernos para tu espacio de trabajo</h2>
     <p>Diseñamos y fabricamos escritorios y mobiliario personalizado con calidad profesional.</p>
-    <a class="boton-hero" href="productos.html">Ver productos</a>
+
+    <a class="boton-hero" href="catalogo.pdf" download>
+      Descargar Catálogo
+    </a>
+
+    <br><br>
+    <a class="whatsapp" href="https://wa.me/593939567100?text=Hola,%20quiero%20ver%20el%20catálogo" target="_blank">
+      Solicitar catálogo por WhatsApp
+    </a>
   </div>
 </section>
-</nav>
 
-<section id="nosotros" class="section">
-  <h2>Sobre Nosotros</h2>
+<!-- 🔥 CATEGORÍAS NUEVAS -->
+<section class="categorias">
 
-  <p><strong>Transformamos tus ideas en proyectos reales.</strong></p>
+  <div class="categoria" style="background-image:url('cat1.jpg')">
+    <div class="categoria-texto">
+      <h3>Home Office</h3>
+    </div>
+  </div>
 
-  <p>
-  Ofrecemos un servicio integral de modelado 3D y despiece técnico especializado en muebles modulares,
-  garantizando precisión, funcionalidad y estética en cada diseño.
-  </p>
+  <div class="categoria" style="background-image:url('cat2.jpg')">
+    <div class="categoria-texto">
+      <h3>Gamers</h3>
+    </div>
+  </div>
 
-  <p>
-  Nuestro equipo trabaja con software de última generación para crear representaciones tridimensionales
-  detalladas que permiten visualizar el resultado final antes de iniciar la fabricación.
-  </p>
+  <div class="categoria" style="background-image:url('cat3.jpg')">
+    <div class="categoria-texto">
+      <h3>Escritorios grandes</h3>
+    </div>
+  </div>
 
-  <p>
-  Además, desarrollamos planos de despiece completos que optimizan el uso de materiales
-  y facilitan el proceso de producción.
-  </p>
+  <div class="categoria" style="background-image:url('cat4.jpg')">
+    <div class="categoria-texto">
+      <h3>Mesas auxiliares</h3>
+    </div>
+  </div>
 
-  <p>
-  Ya seas diseñador, fabricante o cliente particular,
-  convertimos tus conceptos en soluciones prácticas, personalizadas y listas para construir.
-  </p>
+  <div class="categoria" style="background-image:url('cat5.jpg')">
+    <div class="categoria-texto">
+      <h3>Mesas de centro</h3>
+    </div>
+  </div>
+
+  <div class="categoria" style="background-image:url('cat6.jpg')">
+    <div class="categoria-texto">
+      <h3>Mesas de reuniones</h3>
+    </div>
+  </div>
 
 </section>
 
@@ -174,55 +264,13 @@ footer{
     <div class="producto">
       <img src="nova.jpg" alt="Escritorio NOVA">
       <h3>Escritorio NOVA</h3>
-      <p><strong>Características:</strong></p> 
-      <p>Base metálica con tablero melamínico aglomerado de 15 mm, acabado con pintura sintética automotriz</p>
-      <p><strong>Dimensiones:</strong></p>
-      <p>Largo: 120 cm</p>
-      <p>Ancho: 60 cm</p>
-      <p>Alto: 75 cm</p>
       <p><strong>Precio:</strong> $80</p>
       <a class="whatsapp" href="https://wa.me/593939567100" target="_blank">
         Consultar por WhatsApp
       </a>
     </div>
 
-    <div class="producto">
-      <img src="zephyr.jpg" alt="Escritorio ZEPHYR">
-      <h3>Escritorio ZEPHYR</h3>
-      <p><strong>Características:</strong></p> 
-      <p>Base metálica con tablero melamínico aglomerado de 15 mm, acabado con pintura sintética automotriz</p>
-      <p><strong>Dimensiones:</strong></p>
-      <p>Largo: 120 cm</p>
-      <p>Ancho: 60 cm</p>
-      <p>Alto: 75 cm</p>
-      <p><strong>Precio:</strong> $105</p>
-      <a class="whatsapp" href="https://wa.me/593939567100" target="_blank">
-        Consultar por WhatsApp
-      </a>
-    </div>
-
-    <div class="producto">
-      <img src="solara.jpg" alt="Mesa Reuniones SOLARA">
-      <h3>Mesa de reuniones SOLARA</h3>
-      <p><strong>Características:</strong></p> 
-      <p>Base metálica con tablero melamínico aglomerado de 15 mm, acabado con pintura sintética automotriz. Capacidad para 8 puestos</p>
-      <p><strong>Dimensiones:</strong></p>
-      <p>Largo: 220 cm</p>
-      <p>Ancho: 110 cm</p>
-      <p>Alto: 80 cm</p>
-      <p><strong>Precio:</strong> $230</p>
-      <a class="whatsapp" href="https://wa.me/593939567100" target="_blank">
-        Consultar por WhatsApp
-      </a>
-    </div>
-
   </div>
-</section>
-
-<section id="ubicacion" class="section">
-  <h2>Ubicación</h2>
-  <p>Sangolquí: Inés Gangotena y Calle 11</p>
-  <p>Quito: 9 de Octubre y Berlín, frente al Colegio Dillon</p>
 </section>
 
 <section id="contacto" class="section">
@@ -233,8 +281,25 @@ footer{
 </section>
 
 <footer>
-  <p>© 2026 Diseño Industrial 593 - Todos los derechos reservados</p>
+  <p>© 2026 Diseño Industrial 593</p>
 </footer>
+
+<script>
+const imagenes = [
+  "portada.jpeg",
+  "portada2.jpeg"
+];
+
+let index = 0;
+
+function cambiarFondo() {
+  document.querySelector(".hero").style.backgroundImage = `url(${imagenes[index]})`;
+  index = (index + 1) % imagenes.length;
+}
+
+setInterval(cambiarFondo, 4000);
+cambiarFondo();
+</script>
 
 </body>
 </html>
