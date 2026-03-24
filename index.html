@@ -183,16 +183,45 @@ footer{
   font-weight:bold;
 }
 
+.slider-container{
+  position:relative;
+  overflow:hidden;
+}
+
 .slider{
   display:flex;
-  width:100%;
-  overflow:hidden;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slider img{
   width:100%;
   flex-shrink:0;
-  transition: transform 0.5s ease-in-out;
+}
+
+/* BOTONES */
+.btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:white;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  font-size:18px;
+  border-radius:50%;
+}
+
+.prev{
+  left:10px;
+}
+
+.next{
+  right:10px;
+}
+
+.btn:hover{
+  background:rgba(0,0,0,0.8);
 }
 </style>
 </head>
@@ -271,12 +300,23 @@ footer{
   <div class="productos">
 
     <div class="producto">
-      <div class="slider" id="sliderNova">
-        <img src="img/nova.jpeg">
-        <img src="img/novaB.jpeg">
+  
+  <div class="slider-container">
+    
+    <button class="btn prev" onclick="moverSlide('sliderNova', -1)">❮</button>
+    
+    <div class="slider" id="sliderNova">
+      <img src="img/nova.jpeg">
+      <img src="img/novaB.jpeg">
+    </div>
+    
+    <button class="btn next" onclick="moverSlide('sliderNova', 1)">❯</button>
+  
   </div>
+
   <h3>Escritorio NOVA</h3>
   <p>$80</p>
+
 </div>
 
     <div class="producto">
@@ -424,20 +464,28 @@ cambiarFondo();
 
 <!-- Función reutilizable cambiar imágenes -->
 <script>
-function sliderMovimiento(id, tiempo = 3000){
+const sliders = {};
+
+function moverSlide(id, direccion){
   const slider = document.getElementById(id);
   const total = slider.children.length;
-  let index = 0;
 
-  setInterval(() => {
-    index = (index + 1) % total;
-    slider.style.transform = `translateX(-${index * 100}%)`;
-  }, tiempo);
+  if(!sliders[id]){
+    sliders[id] = 0;
+  }
+
+  sliders[id] += direccion;
+
+  if(sliders[id] < 0){
+    sliders[id] = total - 1;
+  }
+
+  if(sliders[id] >= total){
+    sliders[id] = 0;
+  }
+
+  slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
 }
-
-// NOVA
-sliderMovimiento("sliderNova");
 </script>
-
 </body>
 </html>
