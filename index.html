@@ -259,7 +259,7 @@ footer{
   <div class="productos">
 
     <div class="producto">
-      <img src="img/nova.jpeg">
+      <img id="novaImg" src="img/nova.jpeg">
       <h3>Escritorio NOVA</h3>
       <p>$80</p>
     </div>
@@ -407,19 +407,21 @@ setInterval(cambiarFondo, 4000);
 cambiarFondo();
 </script>
 
-<!-- NOVA -->
+<!-- Función reutilizable cambiar imágenes -->
 <script>
-const novaImgs = [
+function sliderImagenes(id, imagenes, tiempo = 2000) {
+  let i = 0;
+  setInterval(() => {
+    document.getElementById(id).src = imagenes[i];
+    i = (i + 1) % imagenes.length;
+  }, tiempo);
+}
+
+// NOVA
+sliderImagenes("novaImg", [
   "img/nova.jpeg",
   "img/novaB.jpeg"
-];
-
-let i = 0;
-
-setInterval(() => {
-  document.getElementById("novaImg").src = novaImgs[i];
-  i = (i + 1) % novaImgs.length;
-}, 2000);
+]);
 </script>
 
 </body>
