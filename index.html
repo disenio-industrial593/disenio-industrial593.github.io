@@ -235,18 +235,28 @@ html{
   left:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.9);
   display:none;
   justify-content:center;
   align-items:center;
   z-index:2000;
 }
 
+/* CONTENEDOR DEL SLIDER */
+#visor .slider{
+  width:90%;
+  max-width:700px;
+  display:flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* IMÁGENES */
 #visor img{
-  max-width:90%;
-  max-height:90%;
+  width:100%;
+  flex-shrink:0;
   border-radius:10px;
 }
+
 </style>
 </head>
 
@@ -678,8 +688,14 @@ function cerrarImagen(){
 
 
 <!-- IMAGEN GRANDE CERRAR -->
-  <div id="visor" onclick="cerrarImagen()">
-  <img id="imgGrande">
+<div id="visor" class="visor" onclick="cerrarVisor()">
+
+  <button class="btn prev" onclick="event.stopPropagation(); moverSlide('visorSlider', -1)">❮</button>
+
+  <div class="slider" id="visorSlider"></div>
+
+  <button class="btn next" onclick="event.stopPropagation(); moverSlide('visorSlider', 1)">❯</button>
+
 </div>
   
 </body>
