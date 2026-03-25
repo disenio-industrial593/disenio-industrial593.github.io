@@ -228,8 +228,90 @@ footer{
 html{
   scroll-behavior: smooth;
 }
+
+#visor{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+#visor img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
 </style>
 </head>
+
+  
+<!-- JAVA SCRIPT -->
+
+  <!-- PORTADA -->
+<script>
+const imagenes = [
+  "img/portada.jpeg",
+  "img/portada2.jpeg"
+];
+
+let index = 0;
+
+function cambiarFondo() {
+  document.querySelector(".hero").style.backgroundImage = `url(${imagenes[index]})`;
+  index = (index + 1) % imagenes.length;
+}
+
+setInterval(cambiarFondo, 4000);
+cambiarFondo();
+</script>
+
+  
+  <!-- Función reutilizable cambiar imágenes -->
+<script>
+const sliders = {};
+
+function moverSlide(id, direccion){
+  const slider = document.getElementById(id);
+  const total = slider.children.length;
+
+  if(!sliders[id]){
+    sliders[id] = 0;
+  }
+
+  sliders[id] += direccion;
+
+  if(sliders[id] < 0){
+    sliders[id] = total - 1;
+  }
+
+  if(sliders[id] >= total){
+    sliders[id] = 0;
+  }
+
+  slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
+}
+  
+</script>
+
+  
+  <!-- AMPLIAR Y CERRAR IMAGENES -->
+  <script>
+function ampliarImagen(img){
+  document.getElementById("visor").style.display = "flex";
+  document.getElementById("imgGrande").src = img.src;
+}
+
+function cerrarImagen(){
+  document.getElementById("visor").style.display = "none";
+}
+</script>
+
 
 <body>
 
@@ -315,8 +397,8 @@ html{
     <button class="btn prev" onclick="moverSlide('sliderNova', -1)">❮</button>
     
     <div class="slider" id="sliderNova">
-      <img src="img/nova.jpeg">
-      <img src="img/novaB.jpeg">
+      <img src="img/nova.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/novaB.jpeg" onclick="ampliarImagen(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderNova', 1)">❯</button>
@@ -330,7 +412,7 @@ html{
 
     <!-- ELYSIUM -->
     <div class="producto">
-      <img src="img/elysiumC.jpeg">
+      <img src="img/elysiumC.jpeg" onclick="ampliarImagen(this)">
       <h3>Escritorio ELYSIUM</h3>
       <p>$95</p>
     </div>
@@ -353,8 +435,8 @@ html{
     <button class="btn prev" onclick="moverSlide('sliderZephyr', -1)">❮</button>
     
     <div class="slider" id="sliderZephyr">
-      <img src="img/zephyr.jpeg">
-      <img src="img/zephyrB.jpeg">
+      <img src="img/zephyr.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zephyrB.jpeg" onclick="ampliarImagen(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderZephyr', 1)">❯</button>
@@ -374,11 +456,11 @@ html{
     <button class="btn prev" onclick="moverSlide('sliderZenon', -1)">❮</button>
     
     <div class="slider" id="sliderZenon">
-      <img src="img/zenon-portada.jpeg">
-      <img src="img/zenon.jpeg">
-      <img src="img/zenon-roblox.jpeg">
-      <img src="img/zenon25.jpeg">
-      <img src="img/zenon2.jpeg">
+      <img src="img/zenon-portada.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zenon.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zenon-roblox.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zenon25.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zenon2.jpeg" onclick="ampliarImagen(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderZenon', 1)">❯</button>
@@ -401,25 +483,25 @@ html{
   
     
     <div class="producto">
-      <img src="img/comedor.jpeg">
+      <img src="img/comedor.jpeg" onclick="ampliarImagen(this)">
       <h3>Mesa</h3>
       <p>$230</p>
     </div>
 
     <div class="producto">
-      <img src="img/escritorioB.jpeg">
+      <img src="img/escritorioB.jpeg" onclick="ampliarImagen(this)">
       <h3>Escritorio</h3>
       <p>$150</p>
     </div>
 
     <div class="producto">
-      <img src="img/escritorioC.jpeg">
+      <img src="img/escritorioC.jpeg" onclick="ampliarImagen(this)">
       <h3>Escritorio</h3>
       <p>$150</p>
     </div>
 
     <div class="producto">
-      <img src="img/elysium-cajonera.jpeg">
+      <img src="img/elysium-cajonera.jpeg" onclick="ampliarImagen(this)">
       <h3>Escritorio</h3>
       <p>$---</p>
     </div>
@@ -431,10 +513,10 @@ html{
       <button class="btn prev" onclick="moverSlide('sliderOrion', -1)">❮</button>
     
     <div class="slider" id="sliderOrion">
-      <img src="img/orion-portada.jpeg">
-      <img src="img/orion.jpeg">
-      <img src="img/orionC.jpeg">
-      <img src="img/orionG.jpeg">
+      <img src="img/orion-portada.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/orion.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/orionC.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/orionG.jpeg" onclick="ampliarImagen(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderOrion', 1)">❯</button>
@@ -446,13 +528,13 @@ html{
   </div>
 
     <div class="producto">
-      <img src="img/nova-cajonera.jpeg">
+      <img src="img/nova-cajonera.jpeg" onclick="ampliarImagen(this)">
       <h3>----</h3>
       <p>$---</p>
     </div>
 
     <div class="producto">
-      <img src="img/nova-CR.jpeg">
+      <img src="img/nova-CR.jpeg" onclick="ampliarImagen(this)">
       <h3>----</h3>
       <p>$----</p>
     </div>
@@ -472,8 +554,8 @@ html{
       <button class="btn prev" onclick="moverSlide('sliderNexa', -1)">❮</button>
     
     <div class="slider" id="sliderNexa">
-      <img src="img/nexa1.1.jpeg">
-      <img src="img/nexa1.jpeg">
+      <img src="img/nexa1.1.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/nexa1.jpeg" onclick="ampliarImagen(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderNexa', 1)">❯</button>
@@ -493,7 +575,7 @@ html{
   <div class="productos">
 
     <div class="producto">
-      <img src="img/zynk.jpeg">
+      <img src="img/zynk.jpeg" onclick="ampliarImagen(this)">
       <h3>ZYNK</h3>
       <p>$60</p>
     </div>
@@ -514,8 +596,8 @@ html{
     <button class="btn prev" onclick="moverSlide('sliderSolara', -1)">❮</button>
     
     <div class="slider" id="sliderSolara">
-      <img src="img/solara.jpeg">
-      <img src="img/solara-lateral.jpeg">
+      <img src="img/solara.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/solara-lateral.jpeg" onclick="ampliarImagen(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderSolara', 1)">❯</button>
@@ -535,14 +617,14 @@ html{
   <div class="productos">
     
     <div class="producto">
-      <img src="img/consola1.jpeg">
+      <img src="img/consola1.jpeg"  onclick="ampliarImagen(this)">
       <h3>Consola Moderna</h3>
       <p>Espejo: $50</p>
       <p>Consola: $50</p>
     </div>
 
     <div class="producto">
-      <img src="img/consola2.jpeg">
+      <img src="img/consola2.jpeg" onclick="ampliarImagen(this)">
       <h3>Consola Moderna</h3>
       <p>Espejo: $50</p>
       <p>Consola: $50</p>
@@ -558,7 +640,7 @@ html{
 
     <!-- Espejo 1 -->
     <div class="producto">
-      <img src="img/espejo1.jpeg">
+      <img src="img/espejo1.jpeg" onclick="ampliarImagen(this)">
       <h3>Espejo Decorativo</h3>
       <p><strong>Medidas:</strong> 150x50 cm</p>
       <p>$50</p>
@@ -566,7 +648,7 @@ html{
 
   <!-- Espejo 2 -->
     <div class="producto">
-      <img src="img/espejo2.jpeg">
+      <img src="img/espejo2.jpeg" onclick="ampliarImagen(this)">
       <h3>Espejo Decorativo</h3>
       <p><strong>Medidas:</strong> 180x90 cm</p>
       <p>$110</p>
@@ -594,51 +676,11 @@ html{
   <p>© 2026 Diseño Industrial 593</p>
 </footer>
 
+
+<!-- IMAGEN GRANDE CERRAR -->
+  <div id="visor" onclick="cerrarImagen()">
+  <img id="imgGrande">
+</div>
   
-<!-- PORTADA -->
-<script>
-const imagenes = [
-  "img/portada.jpeg",
-  "img/portada2.jpeg"
-];
-
-let index = 0;
-
-function cambiarFondo() {
-  document.querySelector(".hero").style.backgroundImage = `url(${imagenes[index]})`;
-  index = (index + 1) % imagenes.length;
-}
-
-setInterval(cambiarFondo, 4000);
-cambiarFondo();
-</script>
-
-  
-<!-- Función reutilizable cambiar imágenes -->
-<script>
-const sliders = {};
-
-function moverSlide(id, direccion){
-  const slider = document.getElementById(id);
-  const total = slider.children.length;
-
-  if(!sliders[id]){
-    sliders[id] = 0;
-  }
-
-  sliders[id] += direccion;
-
-  if(sliders[id] < 0){
-    sliders[id] = total - 1;
-  }
-
-  if(sliders[id] >= total){
-    sliders[id] = 0;
-  }
-
-  slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
-}
-  
-</script>
 </body>
 </html>
