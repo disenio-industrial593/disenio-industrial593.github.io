@@ -311,13 +311,18 @@ function moverSlide(id, direccion){
 
   
   <!-- AMPLIAR Y CERRAR IMAGENES -->
-  <script>
-function ampliarImagen(img){
+
+<script>
+function abrirVisor(imgElement){
+  const slider = imgElement.parentElement;
+  const visorSlider = document.getElementById("visorSlider");
+
+  visorSlider.innerHTML = slider.innerHTML;
+
   document.getElementById("visor").style.display = "flex";
-  document.getElementById("imgGrande").src = img.src;
 }
 
-function cerrarImagen(){
+function cerrarVisor(){
   document.getElementById("visor").style.display = "none";
 }
 </script>
@@ -407,8 +412,8 @@ function cerrarImagen(){
     <button class="btn prev" onclick="moverSlide('sliderNova', -1)">❮</button>
     
     <div class="slider" id="sliderNova">
-      <img src="img/nova.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/novaB.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/nova.jpeg" onclick="abrirVisor(this)"">
+      <img src="img/novaB.jpeg" onclick="abrirVisor(this)"">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderNova', 1)">❯</button>
@@ -422,7 +427,7 @@ function cerrarImagen(){
 
     <!-- ELYSIUM -->
     <div class="producto">
-      <img src="img/elysiumC.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/elysiumC.jpeg" onclick="abrirVisor(this)">
       <h3>Escritorio ELYSIUM</h3>
       <p>$95</p>
     </div>
@@ -445,8 +450,8 @@ function cerrarImagen(){
     <button class="btn prev" onclick="moverSlide('sliderZephyr', -1)">❮</button>
     
     <div class="slider" id="sliderZephyr">
-      <img src="img/zephyr.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/zephyrB.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zephyr.jpeg" onclick="abrirVisor(this)">
+      <img src="img/zephyrB.jpeg" onclick="abrirVisor(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderZephyr', 1)">❯</button>
@@ -466,11 +471,11 @@ function cerrarImagen(){
     <button class="btn prev" onclick="moverSlide('sliderZenon', -1)">❮</button>
     
     <div class="slider" id="sliderZenon">
-      <img src="img/zenon-portada.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/zenon.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/zenon-roblox.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/zenon25.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/zenon2.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zenon-portada.jpeg" onclick="abrirVisor(this)">
+      <img src="img/zenon.jpeg" onclick="abrirVisor(this)">
+      <img src="img/zenon-roblox.jpeg" onclick="abrirVisor(this)">
+      <img src="img/zenon25.jpeg" onclick="abrirVisor(this)">
+      <img src="img/zenon2.jpeg" onclick="abrirVisor(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderZenon', 1)">❯</button>
@@ -493,25 +498,25 @@ function cerrarImagen(){
   
     
     <div class="producto">
-      <img src="img/comedor.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/comedor.jpeg" onclick="abrirVisor(this)">
       <h3>Mesa</h3>
       <p>$230</p>
     </div>
 
     <div class="producto">
-      <img src="img/escritorioB.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/escritorioB.jpeg" onclick="abrirVisor(this)">
       <h3>Escritorio</h3>
       <p>$150</p>
     </div>
 
     <div class="producto">
-      <img src="img/escritorioC.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/escritorioC.jpeg" onclick="abrirVisor(this)">
       <h3>Escritorio</h3>
       <p>$150</p>
     </div>
 
     <div class="producto">
-      <img src="img/elysium-cajonera.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/elysium-cajonera.jpeg" onclick="abrirVisor(this)">
       <h3>Escritorio</h3>
       <p>$---</p>
     </div>
@@ -523,10 +528,10 @@ function cerrarImagen(){
       <button class="btn prev" onclick="moverSlide('sliderOrion', -1)">❮</button>
     
     <div class="slider" id="sliderOrion">
-      <img src="img/orion-portada.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/orion.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/orionC.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/orionG.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/orion-portada.jpeg" onclick="abrirVisor(this)">
+      <img src="img/orion.jpeg" onclick="abrirVisor(this)">
+      <img src="img/orionC.jpeg" onclick="abrirVisor(this)">
+      <img src="img/orionG.jpeg" onclick="abrirVisor(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderOrion', 1)">❯</button>
@@ -538,13 +543,13 @@ function cerrarImagen(){
   </div>
 
     <div class="producto">
-      <img src="img/nova-cajonera.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/nova-cajonera.jpeg" onclick="abrirVisor(this)">
       <h3>----</h3>
       <p>$---</p>
     </div>
 
     <div class="producto">
-      <img src="img/nova-CR.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/nova-CR.jpeg" onclick="abrirVisor(this)">
       <h3>----</h3>
       <p>$----</p>
     </div>
@@ -564,8 +569,8 @@ function cerrarImagen(){
       <button class="btn prev" onclick="moverSlide('sliderNexa', -1)">❮</button>
     
     <div class="slider" id="sliderNexa">
-      <img src="img/nexa1.1.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/nexa1.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/nexa1.1.jpeg" onclick="abrirVisor(this)">
+      <img src="img/nexa1.jpeg" onclick="abrirVisor(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderNexa', 1)">❯</button>
@@ -585,7 +590,7 @@ function cerrarImagen(){
   <div class="productos">
 
     <div class="producto">
-      <img src="img/zynk.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/zynk.jpeg" onclick="abrirVisor(this)">
       <h3>ZYNK</h3>
       <p>$60</p>
     </div>
@@ -606,8 +611,8 @@ function cerrarImagen(){
     <button class="btn prev" onclick="moverSlide('sliderSolara', -1)">❮</button>
     
     <div class="slider" id="sliderSolara">
-      <img src="img/solara.jpeg" onclick="ampliarImagen(this)">
-      <img src="img/solara-lateral.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/solara.jpeg" onclick="abrirVisor(this)">
+      <img src="img/solara-lateral.jpeg" onclick="abrirVisor(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderSolara', 1)">❯</button>
@@ -627,14 +632,14 @@ function cerrarImagen(){
   <div class="productos">
     
     <div class="producto">
-      <img src="img/consola1.jpeg"  onclick="ampliarImagen(this)">
+      <img src="img/consola1.jpeg"  onclick="abrirVisor(this)">
       <h3>Consola Moderna</h3>
       <p>Espejo: $50</p>
       <p>Consola: $50</p>
     </div>
 
     <div class="producto">
-      <img src="img/consola2.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/consola2.jpeg" onclick="abrirVisor(this)">
       <h3>Consola Moderna</h3>
       <p>Espejo: $50</p>
       <p>Consola: $50</p>
@@ -650,7 +655,7 @@ function cerrarImagen(){
 
     <!-- Espejo 1 -->
     <div class="producto">
-      <img src="img/espejo1.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/espejo1.jpeg" onclick="abrirVisor(this)">
       <h3>Espejo Decorativo</h3>
       <p><strong>Medidas:</strong> 150x50 cm</p>
       <p>$50</p>
@@ -658,7 +663,7 @@ function cerrarImagen(){
 
   <!-- Espejo 2 -->
     <div class="producto">
-      <img src="img/espejo2.jpeg" onclick="ampliarImagen(this)">
+      <img src="img/espejo2.jpeg" onclick="abrirVisor(this)">
       <h3>Espejo Decorativo</h3>
       <p><strong>Medidas:</strong> 180x90 cm</p>
       <p>$110</p>
