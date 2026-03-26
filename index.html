@@ -12,6 +12,14 @@ body{
   background:#f4f4f4;
 }
 
+:root{
+  --color-principal:#1f2937;   /* gris oscuro elegante */
+  --color-secundario:#111827;  /* más oscuro */
+  --color-acento:#25D366;      /* verde (ya tienes) */
+  --color-blanco:#ffffff;
+  --color-gris:#f3f4f6;
+}
+
 /* HEADER NUEVO + FIJO */
 .header{
   display:flex;
@@ -37,8 +45,12 @@ body{
   color:white;
   margin:0 15px;
   text-decoration:none;
-  font-weight:bold;
-  position:relative;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.menu a:hover{
+  color:#25D366;
 }
 
 .menu a::after{
@@ -50,10 +62,6 @@ body{
   left:0;
   bottom:-5px;
   transition:0.3s;
-}
-
-.menu a:hover::after{
-  width:100%;
 }
 
 .section{
