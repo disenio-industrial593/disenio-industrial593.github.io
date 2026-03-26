@@ -311,22 +311,31 @@ function moverSlide(id, direccion){
 
   
   <!-- AMPLIAR Y CERRAR IMAGENES -->
-
 <script>
-function abrirVisor(imgElement){
+  function abrirVisor(imgElement){
   const slider = imgElement.parentElement;
   const visorSlider = document.getElementById("visorSlider");
 
+  // Copia TODAS las imágenes (esto está bien para poder deslizar)
   visorSlider.innerHTML = slider.innerHTML;
+
+  // Obtener índice de la imagen clickeada 
+  const imgs = slider.children;
+  let index = 0;
+
+  for(let i = 0; i < imgs.length; i++){
+    if(imgs[i] === imgElement){
+      index = i;
+      break;
+    }
+  }
+
+  // Posicionar el visor en ESA imagen 
+  visorSlider.style.transform = `translateX(-${index * 100}%)`;
 
   document.getElementById("visor").style.display = "flex";
 }
-
-function cerrarVisor(){
-  document.getElementById("visor").style.display = "none";
-}
-</script>
-
+</script>    
 
 <body>
 
@@ -412,8 +421,8 @@ function cerrarVisor(){
     <button class="btn prev" onclick="moverSlide('sliderNova', -1)">❮</button>
     
     <div class="slider" id="sliderNova">
-      <img src="img/nova.jpeg" onclick="abrirVisor(this)"">
-      <img src="img/novaB.jpeg" onclick="abrirVisor(this)"">
+      <img src="img/nova.jpeg" onclick="abrirVisor(this)">
+      <img src="img/novaB.jpeg" onclick="abrirVisor(this)">
     </div>
     
     <button class="btn next" onclick="moverSlide('sliderNova', 1)">❯</button>
