@@ -212,16 +212,17 @@ footer{
 
 /* BOTONES */
 .btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
-  color:white;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(5px);
   border:none;
-  padding:10px;
-  cursor:pointer;
-  font-size:18px;
+  padding:12px;
   border-radius:50%;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#25D366;
+  transform:scale(1.1);
 }
 
 .prev{
@@ -230,10 +231,6 @@ footer{
 
 .next{
   right:10px;
-}
-
-.btn:hover{
-  background:rgba(0,0,0,0.8);
 }
 
 html{
