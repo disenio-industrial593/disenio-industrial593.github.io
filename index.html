@@ -240,7 +240,7 @@ html{
   justify-content:center;
   align-items:center;
   z-index:2000;
-  overflow:hidden; /* 🔥 AQUÍ VA */
+  overflow:hidden; 
 }
 
 
@@ -336,7 +336,7 @@ function abrirVisor(imgElement){
     }
   }
 
-  sliders["visorSlider"] = index; // 🔥 IMPORTANTE
+  sliders["visorSlider"] = index; 
 
   visorSlider.style.transform = `translateX(-${index * 100}%)`;
 
@@ -450,8 +450,21 @@ function cerrarVisor(){
 
     <!-- ELYSIUM -->
     <div class="producto">
+      
+      <div class="slider-container">
+    
+    <button class="btn prev" onclick="moverSlide('sliderElysium', -1)">❮</button>
+    
+    <div class="slider" id="sliderElysium">
       <img src="img/elysiumC.jpeg" onclick="abrirVisor(this)">
-      <h3>Escritorio ELYSIUM</h3>
+      <img src="img/elysium.jpeg" onclick="abrirVisor(this)">
+    </div>
+    
+    <button class="btn next" onclick="moverSlide('sliderElysium', 1)">❯</button>
+  
+  </div>
+      
+      <h3>ELYSIUM</h3>
       <p>$95</p>
     </div>
 
@@ -481,7 +494,7 @@ function cerrarVisor(){
   
   </div>
 
-  <h3>Escritorio ZEPHYR</h3>
+  <h3>ZEPHYR</h3>
   <p>$105</p>
 
 </div>
@@ -505,7 +518,7 @@ function cerrarVisor(){
   
   </div>
 
-  <h3>Escritorio Zenon</h3>
+  <h3>ZENON</h3>
   <p>$---</p>
 
     </div>
@@ -515,13 +528,13 @@ function cerrarVisor(){
 
 <!-- GRANDES -->
 <section id="grandes" class="section">
-  <h2>Escritorios/mesas grandes</h2>
+  <h2>Escritorios/Mesas grandes</h2>
   
   <div class="productos">
   
     
     <div class="producto">
-      <img src="img/comedor.jpeg" onclick="abrirVisor(this)">
+      <img src="img/comedor.jpeg">
       <h3>Mesa</h3>
       <p>$230</p>
     </div>
