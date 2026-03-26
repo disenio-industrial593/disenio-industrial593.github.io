@@ -244,20 +244,24 @@ html{
 }
 
 
-/* CONTENEDOR DEL SLIDER */
 #visor .slider{
-  width:90%;
-  max-width:700px;
   display:flex;
   transition: transform 0.5s ease-in-out;
 }
-
+  
 /* IMÁGENES */
 #visor img{
   width:100%;
   min-width:100%;
   flex-shrink:0;
   border-radius:10px;
+}
+
+/* CONTENEDOR QUE RECORTA */
+.visor-contenedor{
+  width:90%;
+  max-width:700px;
+  overflow:hidden;
 }
 
 </style>
@@ -710,12 +714,14 @@ function cerrarVisor(){
 </footer>
 
 
-<!-- IMAGEN GRANDE CERRAR -->
-<div id="visor" class="visor" onclick="cerrarVisor()">
+<div id="visor" onclick="cerrarVisor()">
 
   <button class="btn prev" onclick="event.stopPropagation(); moverSlide('visorSlider', -1)">❮</button>
 
-  <div class="slider" id="visorSlider"></div>
+  <!-- NUEVO CONTENEDOR -->
+  <div class="visor-contenedor">
+    <div class="slider" id="visorSlider"></div>
+  </div>
 
   <button class="btn next" onclick="event.stopPropagation(); moverSlide('visorSlider', 1)">❯</button>
 
@@ -723,6 +729,7 @@ function cerrarVisor(){
   style="position:absolute; top:20px; right:20px; font-size:30px; background:none; color:white; border:none; cursor:pointer;">
   ✕
   </button>
+
 </div>
   
 </body>
