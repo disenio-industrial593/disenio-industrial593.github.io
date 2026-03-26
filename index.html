@@ -371,7 +371,7 @@ function cerrarVisor(){
     <h2>Muebles modernos para tus espacios</h2>
     <p>Diseñamos y fabricamos escritorios y mobiliario personalizado con calidad profesional</p>
 
-    <a class="boton-hero" href="catalogo.pdf" download>
+    <a class="boton-hero" href="MOBILIARIO INDUSTRIAL 2026.pdf" download>
       Descargar Catálogo
     </a>
 
@@ -394,7 +394,7 @@ function cerrarVisor(){
   </a>
 
   <a href="#grandes" class="categoria" style="background-image:url('img/orion-portada.jpeg')">
-    <div class="categoria-texto"><h3>Escritorios grandes</h3></div>
+    <div class="categoria-texto"><h3>Escritorios/Mesas grandes</h3></div>
   </a>
 
   <a href="#auxiliares" class="categoria" style="background-image:url('img/nexa1.1.jpeg')">
@@ -443,7 +443,7 @@ function cerrarVisor(){
   
   </div>
 
-  <h3>Escritorio NOVA</h3>
+  <h3>NOVA</h3>
   <p>$90</p>
 
 </div>
@@ -668,7 +668,21 @@ function cerrarVisor(){
   <div class="productos">
     
     <div class="producto">
-      <img src="img/consola1.jpeg"  onclick="abrirVisor(this)">
+      
+      <div class="slider-container">
+    
+    <button class="btn prev" onclick="moverSlide('sliderConsola', -1)">❮</button>
+    
+    <div class="slider" id="sliderConsola">
+      <img src="img/consola1.jpeg" onclick="abrirVisor(this)">
+      <img src="img/consola2.jpeg" onclick="abrirVisor(this)">
+      <img src="img/consola3.jpeg" onclick="abrirVisor(this)">
+    </div>
+    
+    <button class="btn next" onclick="moverSlide('sliderConsola', 1)">❯</button>
+  
+  </div>
+      
       <h3>Consola Moderna</h3>
       <p>Espejo: $50</p>
       <p>Consola: $50</p>
@@ -677,8 +691,8 @@ function cerrarVisor(){
     <div class="producto">
       <img src="img/consola2.jpeg" onclick="abrirVisor(this)">
       <h3>Consola Moderna</h3>
-      <p>Espejo: $50</p>
-      <p>Consola: $50</p>
+      <p><strong>Espejo:</strong> $50</p>
+      <p><strong>Consola:</strong> $50</p>
     </div>
   </div>
 </section>
