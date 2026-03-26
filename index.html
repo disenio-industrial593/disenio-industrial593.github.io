@@ -247,12 +247,14 @@ html{
   width:90%;
   max-width:700px;
   display:flex;
-  transition: transform 0.5s ease-in-out;
+  overflow:hidden; /* ESTA ES LA CLAVE */
+  position:relative;
 }
 
 /* IMÁGENES */
 #visor img{
-  width:100%;
+  min-width:100%;
+  height:auto;
   flex-shrink:0;
   border-radius:10px;
 }
@@ -312,14 +314,12 @@ function moverSlide(id, direccion){
   
   <!-- AMPLIAR Y CERRAR IMAGENES -->
 <script>
-  function abrirVisor(imgElement){
+function abrirVisor(imgElement){
   const slider = imgElement.parentElement;
   const visorSlider = document.getElementById("visorSlider");
 
-  // Copia TODAS las imágenes (esto está bien para poder deslizar)
   visorSlider.innerHTML = slider.innerHTML;
 
-  // Obtener índice de la imagen clickeada 
   const imgs = slider.children;
   let index = 0;
 
@@ -330,12 +330,20 @@ function moverSlide(id, direccion){
     }
   }
 
-  // Posicionar el visor en ESA imagen 
+  sliders["visorSlider"] = index; // 🔥 IMPORTANTE
+
   visorSlider.style.transform = `translateX(-${index * 100}%)`;
 
   document.getElementById("visor").style.display = "flex";
 }
+
+  
+function cerrarVisor(){
+  document.getElementById("visor").style.display = "none";
+}
 </script>    
+
+
 
 <body>
 
@@ -710,6 +718,10 @@ function moverSlide(id, direccion){
 
   <button class="btn next" onclick="event.stopPropagation(); moverSlide('visorSlider', 1)">❯</button>
 
+  <button onclick="cerrarVisor()" 
+  style="position:absolute; top:20px; right:20px; font-size:30px; background:none; color:white; border:none; cursor:pointer;">
+  ✕
+  </button>
 </div>
   
 </body>
