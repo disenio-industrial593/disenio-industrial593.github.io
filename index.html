@@ -12,7 +12,7 @@ body{
   background:#f4f4f4;
 }
 
-/* HEADER NUEVO + FIJO */
+
 .header{
   display:flex;
   justify-content:space-between;
@@ -61,7 +61,7 @@ body{
   text-align:center;
 }
 
-/* NUEVAS CATEGORÍAS */
+
 .categorias{
   display:flex;
   gap:20px;
@@ -108,8 +108,8 @@ body{
 
 .productos{
   display:flex;
-  flex-wrap:wrap;              /* permite que bajen */
-  justify-content:center;      /* 🔥 centra cuando hay pocos */
+  flex-wrap:wrap;             
+  justify-content:center;      
   gap:20px;
   padding:20px;
 }
@@ -162,7 +162,7 @@ footer{
   line-height:1.6;
 }
 
-/* HERO */
+
 .hero{
   height:500px;
   background-size:cover;
@@ -212,7 +212,7 @@ footer{
   flex-shrink:0;
 }
 
-/* BOTONES */
+
 .btn { 
   position:absolute; 
   top:50%; 
@@ -262,16 +262,16 @@ html {
   transition: transform 0.5s ease-in-out;
 }
   
-/* IMÁGENES */
+
 #visor img{
   width:100%;
-  height:80vh; /* se adapta a la pantalla */
+  height:80vh; 
   object-fit:contain;
   flex-shrink:0;
   border-radius:10px;
 }
 
-/* CONTENEDOR QUE RECORTA */
+
 .visor-contenedor{
   width:90%;
   max-width:700px;
@@ -281,7 +281,7 @@ html {
 @media (max-width: 768px){
 
   .productos{
-    flex-direction: column; /* uno debajo del otro */
+    flex-direction: column; 
     align-items: center;
   }
 
@@ -338,10 +338,7 @@ html {
 </style>
 </head>
 
-  
-<!-- JAVA SCRIPT -->
 
-  <!-- PORTADA -->
 <script>
 const imagenes = [
   "img/portada.jpeg",
@@ -360,7 +357,6 @@ cambiarFondo();
 </script>
 
   
-  <!-- Función reutilizable cambiar imágenes -->
 <script>
 const sliders = {};
 
@@ -388,7 +384,7 @@ function moverSlide(id, direccion){
 </script>
 
   
-  <!-- AMPLIAR Y CERRAR IMAGENES -->
+
 <script>
 function abrirVisor(imgElement){
   const slider = imgElement.parentElement;
@@ -422,7 +418,7 @@ function cerrarVisor(){
 
 <body>
 
-<!-- HEADER -->
+
 <header class="header">
   <div class="logo">DISEÑO INDUSTRIAL 593</div>
 
@@ -434,7 +430,7 @@ function cerrarVisor(){
   </nav>
 </header>
 
-<!-- HERO -->
+
 <section class="hero">
   <div class="hero-texto">
     <h2>Muebles modernos para tus espacios</h2>
@@ -451,7 +447,7 @@ function cerrarVisor(){
   </div>
 </section>
 
-<!-- CATEGORÍAS -->
+
 <section id="categorias" class="categorias">
 
   <a href="#homeoffice" class="categoria" style="background-image:url('img/elysiumC.jpeg')">
@@ -488,15 +484,14 @@ function cerrarVisor(){
 
 </section>
 
-        <!-- PRODUCTOS -->
-  
+       
 <!-- HOME OFFICE -->
 <section id="homeoffice" class="section">
   <h2>Home Office</h2>
 
   <div class="productos">
 
-    <!-- NOVA -->
+    
     <div class="producto">
   
   <div class="slider-container">
@@ -517,7 +512,7 @@ function cerrarVisor(){
 
 </div>
 
-    <!-- ELYSIUM -->
+    
     <div class="producto">
       
       <div class="slider-container">
@@ -547,7 +542,7 @@ function cerrarVisor(){
 
   <div class="productos">
 
-    <!-- ZEPHYR -->
+    
     <div class="producto">
   
   <div class="slider-container">
@@ -568,7 +563,7 @@ function cerrarVisor(){
 
 </div>
 
-    <!-- zenon -->
+    
     <div class="producto">
   
     <div class="slider-container">
@@ -759,7 +754,7 @@ function cerrarVisor(){
   
   <div class="productos">
 
-    <!-- Espejo 1 -->
+    
     <div class="producto">
       <img src="img/espejo1.jpeg" onclick="abrirVisor(this)">
       <h3>Espejo Decorativo</h3>
@@ -767,7 +762,7 @@ function cerrarVisor(){
       <p>$50</p>
     </div>
 
-  <!-- Espejo 2 -->
+ 
     <div class="producto">
       <img src="img/espejo2.jpeg" onclick="abrirVisor(this)">
       <h3>Espejo Decorativo</h3>
@@ -803,7 +798,7 @@ function cerrarVisor(){
 
   <button class="btn prev" onclick="event.stopPropagation(); moverSlide('visorSlider', -1)">❮</button>
 
-  <!-- NUEVO CONTENEDOR -->
+  
   <div class="visor-contenedor">
     <div class="slider" id="visorSlider"></div>
   </div>
