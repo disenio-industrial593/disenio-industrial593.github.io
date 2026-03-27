@@ -108,7 +108,8 @@ body{
 
 .productos{
   display:flex;
-  overflow-x:auto;
+  flex-wrap:wrap;              /* permite que bajen */
+  justify-content:center;      /* 🔥 centra cuando hay pocos */
   gap:20px;
   padding:20px;
 }
