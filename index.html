@@ -278,6 +278,19 @@ html {
   overflow:hidden;
 }
 
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+.categoria.active{
+  outline:3px solid #25D366;
+  transform:scale(1.05);
+}
+
 @media (max-width: 768px){
 
   .productos{
@@ -416,6 +429,41 @@ function cerrarVisor(){
 </script>    
 
 
+<script>
+const links = document.querySelectorAll('.categoria');
+
+links.forEach(link => {
+  link.addEventListener('click', function(e){
+    e.preventDefault(); // 🚫 evita que salte
+
+    const id = this.getAttribute('href').replace('#','');
+
+    // ocultar todos
+    document.querySelectorAll('.tab-content')
+      .forEach(tab => tab.classList.remove('active'));
+
+    // mostrar el seleccionado
+    document.getElementById(id).classList.add('active');
+
+    // marcar activo (opcional)
+    links.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+
+    // scroll arriba
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
+
+// mostrar uno por defecto
+window.onload = () => {
+  document.getElementById('homeoffice').classList.add('active');
+}
+</script>
+
+
 <body>
 
 
@@ -486,7 +534,7 @@ function cerrarVisor(){
 
        
 <!-- HOME OFFICE -->
-<section id="homeoffice" class="section">
+<section id="homeoffice" class="section tab-content">
   <h2>Home Office</h2>
 
   <div class="productos">
@@ -537,7 +585,7 @@ function cerrarVisor(){
 
 
 <!-- GAMERS -->
-<section id="gamers" class="section">
+<section id="gamers" class="section tab-content">
   <h2>Gamers</h2>
 
   <div class="productos">
@@ -591,7 +639,7 @@ function cerrarVisor(){
 
 
 <!-- GRANDES -->
-<section id="grandes" class="section">
+<section id="grandes" class="section tab-content">
   <h2>Escritorios/Mesas grandes</h2>
   
   <div class="productos">
@@ -651,7 +699,7 @@ function cerrarVisor(){
 
 
 <!-- MESAS AUXILIARES -->
-<section id="auxiliares" class="section">
+<section id="auxiliares" class="section tab-content">
   <h2>Mesas auxiliares</h2>
 
   <div class="productos">
@@ -678,7 +726,7 @@ function cerrarVisor(){
 </section>
 
 <!-- MESAS DE CENTRO -->
-<section id="centro" class="section">
+<section id="centro" class="section tab-content">
   <h2>Mesas de centro</h2>
 
   <div class="productos">
@@ -693,7 +741,7 @@ function cerrarVisor(){
   
       
 <!-- REUNIONES -->
-<section id="reuniones" class="section">
+<section id="reuniones" class="section tab-content">
   <h2>Mesas de reuniones</h2>
   
   <div class="productos">
@@ -720,7 +768,7 @@ function cerrarVisor(){
 </section>
 
 <!-- CONSOLAS -->
-<section id="consolas" class="section">
+<section id="consolas" class="section tab-content">
   <h2>Consolas</h2>
   
   <div class="productos">
@@ -749,7 +797,7 @@ function cerrarVisor(){
 </section>
 
 <!-- ESPEJOS -->
-<section id="espejos" class="section">
+<section id="espejos" class="section tab-content">
   <h2>Espejos</h2>
   
   <div class="productos">
@@ -783,14 +831,14 @@ function cerrarVisor(){
 
   
 <!-- UBICACION -->
-  <section id="ubicacion" class="section"> 
+  <section id="ubicacion" class="section tab-content"> 
     <h2>Ubicación</h2> 
     <p><strong>Sangolquí:</strong> Inés Gangotena y Calle 11</p> 
     <p><strong>Quito:</strong> 9 de Octubre y Berlín, frente al Colegio Dillon</p> </section>
 
   
 <!-- CONTACTO -->
-<section id="contacto" class="section">
+<section id="contacto" class="section tab-content">
   <h2>Contacto</h2>
   <a class="whatsapp" href="https://wa.me/593939567100?text=Hola,%20deseo%20más%20información%20sobre:" 
    target="_blank"">WhatsApp</a>
