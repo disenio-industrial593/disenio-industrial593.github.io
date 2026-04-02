@@ -430,37 +430,39 @@ function cerrarVisor(){
 
 
 <script>
-const links = document.querySelectorAll('.categoria');
+document.addEventListener("DOMContentLoaded", function(){
 
-links.forEach(link => {
-  link.addEventListener('click', function(e){
-    e.preventDefault(); // 🚫 evita que salte
+  const links = document.querySelectorAll('.categoria');
 
-    const id = this.getAttribute('href').replace('#','');
+  links.forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
 
-    // ocultar todos
-    document.querySelectorAll('.tab-content')
-      .forEach(tab => tab.classList.remove('active'));
+      const id = this.getAttribute('href').replace('#','');
 
-    // mostrar el seleccionado
-    document.getElementById(id).classList.add('active');
+      // ocultar todos
+      document.querySelectorAll('.tab-content')
+        .forEach(tab => tab.classList.remove('active'));
 
-    // marcar activo (opcional)
-    links.forEach(l => l.classList.remove('active'));
-    this.classList.add('active');
+      // mostrar seleccionado
+      document.getElementById(id).classList.add('active');
 
-    // scroll arriba
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+      // marcar activo
+      links.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+
+      // scroll arriba
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   });
-});
 
-// mostrar uno por defecto
-window.onload = () => {
+  // mostrar por defecto
   document.getElementById('homeoffice').classList.add('active');
-}
+
+});
 </script>
 
 
@@ -531,6 +533,7 @@ window.onload = () => {
   </a>
 
 </section>
+
 
        
 <!-- HOME OFFICE -->
