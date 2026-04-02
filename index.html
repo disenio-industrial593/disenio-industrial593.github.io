@@ -445,17 +445,18 @@ document.addEventListener("DOMContentLoaded", function(){
         .forEach(tab => tab.classList.remove('active'));
 
       // mostrar seleccionado
-      document.getElementById(id).classList.add('active');
+      const section = document.getElementById(id);
+      section.classList.add('active');
 
       // marcar activo
       links.forEach(l => l.classList.remove('active'));
       this.classList.add('active');
 
-      // scroll arriba
-      window.scrollTo({
-        top: 0,
+      // SCROLL HACIA ABAJO 
+      section.scrollIntoView({
         behavior: 'smooth'
       });
+
     });
   });
 
@@ -834,17 +835,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
   
 <!-- UBICACION -->
-  <section id="ubicacion" class="section tab-content"> 
+  <section id="ubicacion" class="section"> 
     <h2>Ubicación</h2> 
     <p><strong>Sangolquí:</strong> Inés Gangotena y Calle 11</p> 
     <p><strong>Quito:</strong> 9 de Octubre y Berlín, frente al Colegio Dillon</p> </section>
 
   
 <!-- CONTACTO -->
-<section id="contacto" class="section tab-content">
+<section id="contacto" class="section">
   <h2>Contacto</h2>
   <a class="whatsapp" href="https://wa.me/593939567100?text=Hola,%20deseo%20más%20información%20sobre:" 
-   target="_blank"">WhatsApp</a>
+   target="_blank">WhatsApp</a>
 </section>
 
   
