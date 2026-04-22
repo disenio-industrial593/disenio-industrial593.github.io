@@ -278,18 +278,7 @@ html {
   overflow:hidden;
 }
 
-.tab-content{
-  display:none;
-}
 
-.tab-content.active{
-  display:block;
-}
-
-.categoria.active{
-  outline:3px solid #25D366;
-  transform:scale(1.05);
-}
 
 @media (max-width: 768px){
 
@@ -429,42 +418,7 @@ function cerrarVisor(){
 </script>    
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function(){
 
-  const links = document.querySelectorAll('.categoria');
-
-  links.forEach(link => {
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-
-      const id = this.getAttribute('href').replace('#','');
-
-      // ocultar todos
-      document.querySelectorAll('.tab-content')
-        .forEach(tab => tab.classList.remove('active'));
-
-      // mostrar seleccionado
-      const section = document.getElementById(id);
-      section.classList.add('active');
-
-      // marcar activo
-      links.forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-
-      // SCROLL HACIA ABAJO 
-      section.scrollIntoView({
-        behavior: 'smooth'
-      });
-
-    });
-  });
-
-  // mostrar por defecto
-  document.getElementById('homeoffice').classList.add('active');
-
-});
-</script>
 
 
 <body>
